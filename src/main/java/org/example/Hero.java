@@ -55,7 +55,7 @@ public abstract class Hero {
     //Display info
     public void display(){
         System.out.printf("Name=%s\tStrength=%d\tDexterity=%d\tIntelligence=%d\n",getName(),this.levelAttributes.getStrength(), this.levelAttributes.getDexterity(), this.levelAttributes.getIntelligence());
-        System.out.printf("Weapon equipped=%s\n",equipment.containsKey(Item.Slot.Weapon)? equipment.get(Item.Slot.Weapon) : "No weapon");
+        System.out.printf("Weapon equipped=%s\n",equipment.containsKey(Item.Slot.Weapon)? equipment.get(Item.Slot.Weapon).getName() : "No weapon");
     }
 
     public int totalAttributes(){
@@ -71,6 +71,7 @@ public abstract class Hero {
                 equipment.remove(Item.Slot.Weapon);
             }
             equipment.put(Item.Slot.Weapon, weapon);
+            System.out.println("Equipped:"+weapon.getName());
         }
     }
     // Add the valid weapon types
