@@ -14,4 +14,8 @@ public class Armor extends Item{
         this.ArmorAttribute = armorAttribute;
         this.armorType = armorType;
     }
+
+    public ArmorType getArmorType() {
+        return armorType;
+    }
 }

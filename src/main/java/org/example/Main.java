@@ -12,13 +12,15 @@ public class Main {
         Ranger tasosRanger = new Ranger("tasoss");
         tasosRanger.display();
         tasos.display();
-        tasosRanger.equip(bow);
+        tasosRanger.equip(bow, null);
         tasosRanger.display();
         Weapon bow2 = new Weapon("Legendary Bow2", 1,10, Weapon.WeaponType.Bow, Item.Slot.Weapon);
-        tasosRanger.equip(bow2);
+        tasosRanger.equip(bow2, null);
         tasosRanger.display();
         Weapon sword = new Weapon("common sword", 1, 2, Weapon.WeaponType.Sword, Item.Slot.Weapon);
-        tasosRanger.equip(sword);
+        //tasosRanger.equip(sword, null);
+        tasosRanger.equip(bow2, leatherBody);
+        tasosRanger.display();
 
     }
 }

@@ -10,6 +10,8 @@ public abstract class Hero {
     protected ArrayList<Armor.ArmorType> validArmorTypes;// = new ArrayList<Armor.ArmorType>();
     protected HashMap<Item.Slot, Item> equipment;
 
+
+
     //; = new HashMap<Item.Slot, Item>();
     //Equipment: Hashmap <slot:key,Item:value>
     //ValidWeaponTypes : List
@@ -55,6 +57,9 @@ public abstract class Hero {
     public void display(){
         System.out.printf("Name=%s\tStrength=%d\tDexterity=%d\tIntelligence=%d\n",getName(),this.levelAttributes.getStrength(), this.levelAttributes.getDexterity(), this.levelAttributes.getIntelligence());
         System.out.printf("Weapon holding=%s\n",equipment.get(Item.Slot.Weapon)==null ? "No weapon" : equipment.get(Item.Slot.Weapon).getName());
+        System.out.printf("Armor holding=%s\n",equipment.get(Item.Slot.Head)==null ? "No head armor" : equipment.get(Item.Slot.Head).getName());
+        System.out.printf("Armor holding=%s\n",equipment.get(Item.Slot.Body)==null ? "No body armor" : equipment.get(Item.Slot.Body).getName());
+        System.out.printf("Armor holding=%s\n",equipment.get(Item.Slot.Legs)==null ? "No leg armor" : equipment.get(Item.Slot.Legs).getName());
     }
 
     public int totalAttributes(){
@@ -62,7 +67,7 @@ public abstract class Hero {
     }
 
 
-    public void equip(Weapon weapon/*, Armor armor*/) throws InvalidWeaponException, InvalidArmorException {
+    public void equip(Weapon weapon, Armor armor) throws InvalidWeaponException, InvalidArmorException {
         if(weapon!=null) {
             if (!validWeaponTypes.contains(weapon.getWeaponType())) {
                 throw new InvalidWeaponException("Invalid Weapon type");
@@ -71,14 +76,14 @@ public abstract class Hero {
                 System.out.println("Equipped:" + weapon.getName());
             }
         }
-        /*if(armor!=null){
-            if (!validWeaponTypes.contains(armor.armorType())) {
+        if(armor!=null){
+            if (!validArmorTypes.contains(armor.getArmorType())) {
                 throw new InvalidArmorException("Invalid Armor type");
             } else {
-                equipment.replace(Item.Slot.Weapon, weapon);
-                System.out.println("Equipped:" + weapon.getName());
+                equipment.replace(armor.getSlot(), armor);
+                System.out.println("Equipped:" + armor.getName());
             }
-        }*/
+        }
 
     }
     // Add the valid weapon types
