@@ -1,9 +1,6 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.HashMap;
+import java.util.*;
 
 public abstract class Hero {
     private String name;
@@ -26,6 +23,8 @@ public abstract class Hero {
         this.validWeaponTypes = new ArrayList<Weapon.WeaponType>();
         this.validArmorTypes = new ArrayList<Armor.ArmorType>();
         this.equipment = new HashMap<Item.Slot, Item>(4);
+        initEquipmentSlots(this.equipment);
+
     }
 
     /*public Hero(String name,int level, HeroAttribute levelAttributes) {
@@ -55,7 +54,7 @@ public abstract class Hero {
     //Display info
     public void display(){
         System.out.printf("Name=%s\tStrength=%d\tDexterity=%d\tIntelligence=%d\n",getName(),this.levelAttributes.getStrength(), this.levelAttributes.getDexterity(), this.levelAttributes.getIntelligence());
-        System.out.printf("Weapon equipped=%s\n",equipment.containsKey(Item.Slot.Weapon)? equipment.get(Item.Slot.Weapon).getName() : "No weapon");
+        System.out.printf("Weapon holding=%s\n",equipment.get(Item.Slot.Weapon)==null ? "No weapon" : equipment.get(Item.Slot.Weapon).getName());
     }
 
     public int totalAttributes(){
@@ -63,16 +62,24 @@ public abstract class Hero {
     }
 
 
-    public void equip(Weapon weapon) throws InvalidWeaponException, InvalidArmorException {
-        if (!validWeaponTypes.contains(weapon.getWeaponType())) {
-            throw new InvalidWeaponException("Invalid Weapon");
-        } else {
-            if (equipment.containsKey(Item.Slot.Weapon)) {
-                equipment.remove(Item.Slot.Weapon);
+    public void equip(Weapon weapon/*, Armor armor*/) throws InvalidWeaponException, InvalidArmorException {
+        if(weapon!=null) {
+            if (!validWeaponTypes.contains(weapon.getWeaponType())) {
+                throw new InvalidWeaponException("Invalid Weapon type");
+            } else {
+                equipment.replace(Item.Slot.Weapon, weapon);
+                System.out.println("Equipped:" + weapon.getName());
             }
-            equipment.put(Item.Slot.Weapon, weapon);
-            System.out.println("Equipped:"+weapon.getName());
         }
+        /*if(armor!=null){
+            if (!validWeaponTypes.contains(armor.armorType())) {
+                throw new InvalidArmorException("Invalid Armor type");
+            } else {
+                equipment.replace(Item.Slot.Weapon, weapon);
+                System.out.println("Equipped:" + weapon.getName());
+            }
+        }*/
+
     }
     // Add the valid weapon types
     public void addWeaponTypes(Weapon.WeaponType ... types){
@@ -91,5 +98,10 @@ public abstract class Hero {
         this.validArmorTypes.addAll(Arrays.asList(types));
     }
 
-
+    public void initEquipmentSlots(HashMap<Item.Slot, Item> equipment){
+        this.equipment.put(Item.Slot.Weapon, null);
+        this.equipment.put(Item.Slot.Head, null);
+        this.equipment.put(Item.Slot.Body, null);
+        this.equipment.put(Item.Slot.Legs, null);
+    }
 }
