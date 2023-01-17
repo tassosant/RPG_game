@@ -7,7 +7,9 @@ public class Mage extends Hero{
 
 
     public Mage(String name) {
-        super(name, new HeroAttribute(1,1,8));
+        super(name);
+        HeroAttribute MageAttributes = new HeroAttribute(1,1,8);
+        setLevelAttributes(MageAttributes);
         addWeaponTypes(Weapon.WeaponType.Staff, Weapon.WeaponType.Wand);
         addArmorTypes(Armor.ArmorType.Mail, Armor.ArmorType.Plate);
     }

@@ -20,6 +20,7 @@ public class Main {
         Weapon sword = new Weapon("common sword", 1, 2, Weapon.WeaponType.Sword, Item.Slot.Weapon);
         //tasosRanger.equip(sword, null);
         tasosRanger.equip(bow2, leatherBody);
+        tasosRanger.levelUp();
         tasosRanger.display();
 
     }

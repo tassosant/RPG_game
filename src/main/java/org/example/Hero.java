@@ -18,10 +18,10 @@ public abstract class Hero {
     //ValidArmorTypes : List
 
     //Constructor
-    public Hero(String name, HeroAttribute levelAttributes) {
+    public Hero(String name) {
         this.name = name;
         this.level = 1;
-        this.levelAttributes = levelAttributes;
+
         this.validWeaponTypes = new ArrayList<Weapon.WeaponType>();
         this.validArmorTypes = new ArrayList<Armor.ArmorType>();
         this.equipment = new HashMap<Item.Slot, Item>(4);
@@ -46,6 +46,11 @@ public abstract class Hero {
     public void setLevel(int level) {
         this.level = level;
     }
+
+    public void setLevelAttributes(HeroAttribute levelAttributes) {
+        this.levelAttributes = levelAttributes;
+    }
+
     //One level up
     public void levelUp(int strength, int dexterity, int intelligence){
         this.levelAttributes.increaseStrength(strength);

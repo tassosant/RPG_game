@@ -2,7 +2,8 @@ package org.example;
 
 public class Warrior extends Hero{
     public Warrior(String name){
-        super(name, new HeroAttribute(5,2,1));
+        super(name);
+        HeroAttribute WarriorAttributes = new HeroAttribute(5,2,1);
         addWeaponTypes(Weapon.WeaponType.Axe, Weapon.WeaponType.Hammer, Weapon.WeaponType.Sword);
         addArmorTypes(Armor.ArmorType.Mail, Armor.ArmorType.Plate);
     }
