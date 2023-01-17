@@ -1,4 +1,6 @@
-package org.example;
+package rpgGame.Items;
+
+import rpgGame.Heroes.HeroAttribute;
 
 public class Armor extends Item{
     public enum ArmorType{

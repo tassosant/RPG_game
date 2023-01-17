@@ -1,4 +1,6 @@
-package org.example;
+package rpgGame.Heroes;
+
+import rpgGame.Items.*;
 
 import java.util.*;
 

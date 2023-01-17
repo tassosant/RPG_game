@@ -1,4 +1,9 @@
-package org.example;
+package rpgGame;
+
+import rpgGame.Heroes.HeroAttribute;
+import rpgGame.Heroes.Mage;
+import rpgGame.Heroes.Ranger;
+import rpgGame.Items.*;
 
 public class Main {
     public static void main(String[] args) throws InvalidArmorException, InvalidWeaponException {

@@ -1,4 +1,4 @@
-package org.example;
+package rpgGame.Items;
 
 public class Weapon extends Item{
     public enum WeaponType {

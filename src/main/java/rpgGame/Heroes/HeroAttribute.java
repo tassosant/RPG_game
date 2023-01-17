@@ -1,4 +1,4 @@
-package org.example;
+package rpgGame.Heroes;
 
 public class HeroAttribute {
     private int strength;

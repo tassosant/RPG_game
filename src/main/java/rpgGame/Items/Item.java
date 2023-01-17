@@ -1,4 +1,4 @@
-package org.example;
+package rpgGame.Items;
 
 public abstract class Item {
     private String name;

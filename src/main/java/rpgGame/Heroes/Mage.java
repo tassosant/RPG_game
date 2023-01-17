@@ -1,7 +1,7 @@
-package org.example;
+package rpgGame.Heroes;
 
-import java.util.ArrayList;
-import java.util.List;
+import rpgGame.Items.Armor;
+import rpgGame.Items.Weapon;
 
 public class Mage extends Hero{
 

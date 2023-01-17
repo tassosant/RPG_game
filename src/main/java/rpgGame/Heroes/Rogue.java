@@ -1,4 +1,7 @@
-package org.example;
+package rpgGame.Heroes;
+
+import rpgGame.Items.Armor;
+import rpgGame.Items.Weapon;
 
 public class Rogue extends Hero{
     public Rogue(String name){
