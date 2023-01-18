@@ -1,8 +1,9 @@
 package rpgGame.Items;
 
 import rpgGame.Heroes.HeroAttribute;
-
+//subclass armor
 public class Armor extends Item{
+    //fields
     public enum ArmorType{
         Cloth,
         Leather,
@@ -11,12 +12,13 @@ public class Armor extends Item{
     }
     HeroAttribute ArmorAttribute;
     ArmorType armorType;
-    public Armor(String name, int requiredLevel,ArmorType armorType, HeroAttribute armorAttribute, Slot slot) {
+    //constructor
+    public Armor(String name, int requiredLevel,ArmorType armorType, int str, int dex, int intel, Slot slot) {
         super(name, requiredLevel, slot);
-        this.ArmorAttribute = armorAttribute;
+        this.ArmorAttribute = new HeroAttribute(str, dex, intel);
         this.armorType = armorType;
     }
-
+    //getters and setters
     public ArmorType getArmorType() {
         return armorType;
     }

@@ -1,6 +1,7 @@
 package rpgGame.Items;
-
+//subclass weapon
 public class Weapon extends Item{
+    //fields
     public enum WeaponType {
         Axe,
         Bow,
@@ -12,7 +13,9 @@ public class Weapon extends Item{
     }
 
     private int weaponDamage;
+    //declaration of weapontype
     WeaponType weaponType;
+    //constructor
     public Weapon(String name, int requiredLevel, int weaponDamage, WeaponType weaponType) {
         super(name, requiredLevel);
         this.slot = Slot.Weapon;
@@ -20,7 +23,7 @@ public class Weapon extends Item{
         this.weaponType = weaponType;
 
     }
-
+    //getters and setters
     public WeaponType getWeaponType() {
         return weaponType;
     }

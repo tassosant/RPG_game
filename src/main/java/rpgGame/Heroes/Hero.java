@@ -6,25 +6,19 @@ import javax.management.ObjectInstance;
 import java.util.*;
 
 public abstract class Hero {
+    //fields
     private String name;
     private int level;
     private HeroAttribute levelAttributes;
-    protected ArrayList<Weapon.WeaponType> validWeaponTypes;// = new ArrayList<Weapon.WeaponType>();// = List.of(Weapon.WeaponType.Axes, Weapon.WeaponType.Bows, Weapon.WeaponType.Daggers, Weapon.WeaponType.Hammers, Weapon.WeaponType.Staffs, Weapon.WeaponType.Swords, Weapon.WeaponType.Wands);
-    protected ArrayList<Armor.ArmorType> validArmorTypes;// = new ArrayList<Armor.ArmorType>();
     protected HashMap<Item.Slot, Item> equipment;
+    protected ArrayList<Weapon.WeaponType> validWeaponTypes;
+    protected ArrayList<Armor.ArmorType> validArmorTypes;
 
-
-
-    //; = new HashMap<Item.Slot, Item>();
-    //Equipment: Hashmap <slot:key,Item:value>
-    //ValidWeaponTypes : List
-    //ValidArmorTypes : List
 
     //Constructor
     public Hero(String name) {
         this.name = name;
         this.level = 1;
-
         this.validWeaponTypes = new ArrayList<Weapon.WeaponType>();
         this.validArmorTypes = new ArrayList<Armor.ArmorType>();
         this.equipment = new HashMap<Item.Slot, Item>(4);
@@ -72,6 +66,7 @@ public abstract class Hero {
         StringBuilder totalStrength = new StringBuilder(totalAttributes().getStrength());
         StringBuilder totalDexterity = new StringBuilder(totalAttributes().getDexterity());
         StringBuilder totalIntelligence = new StringBuilder(totalAttributes().getIntelligence());
+
         System.out.println("Name="+name);
         System.out.println("Class="+name);
         System.out.println("Total strength="+totalAttributes().getStrength());
@@ -93,8 +88,8 @@ public abstract class Hero {
             if(set.getKey() != Item.Slot.Weapon && set.getValue()!=null) {
                 isEmpty = false;
                 TotalHeroAttributes.setStrength(getLevelAttributes().getStrength()+TotalHeroAttributes.getStrength() + ((Armor) set.getValue()).getArmorAttribute().getStrength());
-                TotalHeroAttributes.setDexterity(levelAttributes.getDexterity()+TotalHeroAttributes.getDexterity() + ((Armor) set.getValue()).getArmorAttribute().getDexterity());
-                TotalHeroAttributes.setIntelligence(this.levelAttributes.getIntelligence()+TotalHeroAttributes.getIntelligence() + ((Armor) set.getValue()).getArmorAttribute().getIntelligence());
+                TotalHeroAttributes.setDexterity(getLevelAttributes().getDexterity()+TotalHeroAttributes.getDexterity() + ((Armor) set.getValue()).getArmorAttribute().getDexterity());
+                TotalHeroAttributes.setIntelligence(getLevelAttributes().getIntelligence()+TotalHeroAttributes.getIntelligence() + ((Armor) set.getValue()).getArmorAttribute().getIntelligence());
             }
 
         }
@@ -106,20 +101,32 @@ public abstract class Hero {
     }
 
 
-
+    //Method for equipping the armor
     public void equipArmor(Armor armor) throws InvalidArmorException{
+        //if null value assigned as an argument then do nothing
+        if(armor==null){
+            return;
+        }
+        //if the type of armor is not the type of the hero can equip, throw a custom exception
         if (!validArmorTypes.contains(armor.getArmorType())) {
             throw new InvalidArmorException("Invalid Armor type");
         }else if(armor.getRequiredLevel()>getLevel()) {
+            //if the required level of armor to equip is higher than the hero's level, throw a custom exception
             throw new InvalidArmorException("Not yet at level:"+armor.getRequiredLevel());
         }
         else{
+            //equip the armor
             this.equipment.replace(armor.getSlot(), armor);
             System.out.println("Equipped:" + armor.getName());
         }
     }
 
+    // Equip the weapon
     public void equipWeapon(Weapon weapon) throws InvalidWeaponException{
+        //Same logic as equipArmor
+        if(weapon==null){
+            return;
+        }
         if (!validWeaponTypes.contains(weapon.getWeaponType())) {
             throw new InvalidWeaponException("Invalid Armor type");
         }else if(weapon.getRequiredLevel()>getLevel()) {
@@ -131,7 +138,18 @@ public abstract class Hero {
         }
     }
 
-
+    //Method which returns the damage that hero can make
+    //Passing the special attribute of the hero subclass to this method
+    public double damage(int attribute){
+        int dmg = 0 ;
+        int weapondmg = 1;
+        Weapon weapon = (Weapon) this.equipment.get(Item.Slot.Weapon);
+        if(this.equipment.get(Item.Slot.Weapon)!=null){
+            weapondmg = weapon.getWeaponDamage();
+        }
+        System.out.println("Strong Attribute:"+attribute);
+        return weapondmg * (1+ (double) attribute/100);
+    }
     // Add the valid weapon types
     public void addWeaponTypes(Weapon.WeaponType ... types){
 
@@ -142,27 +160,41 @@ public abstract class Hero {
         * }
         *
         * */
+        //add all the valid item types in an arraylist
         this.validWeaponTypes.addAll(Arrays.asList(types));
     }
     //Add the valid armor types
+    //Same logic to addWeaponTypes method
     public void addArmorTypes(Armor.ArmorType ... types){
+
         this.validArmorTypes.addAll(Arrays.asList(types));
     }
-
+    //Initialize the equipment slots with null values
     public void initEquipmentSlots(HashMap<Item.Slot, Item> equipment){
         this.equipment.put(Item.Slot.Weapon, null);
         this.equipment.put(Item.Slot.Head, null);
         this.equipment.put(Item.Slot.Body, null);
         this.equipment.put(Item.Slot.Legs, null);
     }
-    public double damage(int attribute){
-        int dmg = 0 ;
-        int weapondmg = 1;
-            Weapon weapon = (Weapon) this.equipment.get(Item.Slot.Weapon);
-        if(this.equipment.get(Item.Slot.Weapon)!=null){
-            weapondmg = weapon.getWeaponDamage();
-        }
-        return weapondmg * (1+ attribute/100);
+    //Helper method which makes the values of equipemnt slot to null
+    // This is to test the attributes and damage of the hero after dropping the item
+    public void dropWeapon(){
+        this.equipment.replace(Item.Slot.Weapon, null);
+        System.out.println("Weapon dropped");
+    }
+
+    //Helper method which makes the values of equipemnt slot to null
+    // This is to test the attributes and damage of the hero after dropping the item
+    public void dropArmor(Item item){
+        if(item==null)
+            return;
+        if(Item.Slot.Weapon == item.getSlot()){
+            System.out.println("Can't drop weapon, call the proper method (dropWeapon)");
+            return;
+        };
+        String slot = String.valueOf(item.getSlot());
+        this.equipment.replace(item.getSlot(),null);
+        System.out.println("Armor in "+slot+" dropped");
     }
     /*private HeroAttribute getArmorPieceFromEquipment(Armor armor){
         HeroAttribute

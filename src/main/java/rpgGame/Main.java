@@ -16,13 +16,13 @@ public class Main {
         tasos.levelUp();
         tasos.display();*/
         Weapon bow = new Weapon("Common Bow", 1,2, Weapon.WeaponType.Bow);
-        Armor leatherBody = new Armor("Common leather Body", 1, Armor.ArmorType.Leather,new HeroAttribute(1,0,0), Item.Slot.Body);
+        Armor leatherBody = new Armor("Common leather Body", 1, Armor.ArmorType.Leather,1,10,1, Item.Slot.Body);
+        Weapon bow2 = new Weapon("Legendary Bow2", 1,10, Weapon.WeaponType.Bow);
         Ranger tasosRanger = new Ranger("tasoss");
-        tasosRanger.display();
-        tasos.display();
-        tasosRanger.equipWeapon(bow);
-        tasosRanger.levelUp();
-        tasosRanger.display();
+        Ranger tasosRanger2 = new Ranger("tasos2");
+
+        //tasos.display();
+
         /*Weapon bow2 = new Weapon("Legendary Bow2", 1,10, Weapon.WeaponType.Bow);
         tasosRanger.equipWeapon(bow2);
         tasosRanger.display();
