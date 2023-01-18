@@ -16,7 +16,9 @@ public class Ranger extends Hero{
         super.levelUp(1, 5, 1);
     }
 
-
+    public double damage(){
+        return super.damage(totalAttributes().getDexterity());
+    }
 
 
 }

@@ -20,4 +20,8 @@ public class Armor extends Item{
     public ArmorType getArmorType() {
         return armorType;
     }
+
+    public HeroAttribute getArmorAttribute(){
+        return ArmorAttribute;
+    }
 }

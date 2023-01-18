@@ -7,6 +7,7 @@ public class Rogue extends Hero{
     public Rogue(String name){
         super(name);
         HeroAttribute RogueAttributes =  new HeroAttribute(2,6,1);
+        setLevelAttributes(RogueAttributes);
         addWeaponTypes(Weapon.WeaponType.Dagger, Weapon.WeaponType.Sword);
         addArmorTypes(Armor.ArmorType.Leather, Armor.ArmorType.Mail);
     }
@@ -16,5 +17,9 @@ public class Rogue extends Hero{
 
     public void display(){
         super.display();
+    }
+
+    public double damage(){
+        return super.damage(totalAttributes().getDexterity());
     }
 }

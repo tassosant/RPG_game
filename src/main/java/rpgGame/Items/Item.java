@@ -19,6 +19,11 @@ public abstract class Item {
 
     }
 
+    public Item(String name, int requiredLevel) {
+        this.name = name;
+        this.requiredLevel = requiredLevel;
+    }
+
     public String getName() {
         return name;
     }
