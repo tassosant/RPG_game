@@ -13,12 +13,7 @@ interface weaponAttributes {
 }
 public abstract class Item implements armorAttributes, weaponAttributes {
 
-    public abstract Armor.ArmorType getArmorType();
 
-    public abstract HeroAttribute getArmorAttribute();
-
-    public abstract int getWeaponDamage();
-    public abstract Weapon.WeaponType getWeaponType();
 
     //fields
     private String name;
@@ -57,7 +52,14 @@ public abstract class Item implements armorAttributes, weaponAttributes {
         return requiredLevel;
     }
     //Not used yet. Maybe it is not necessary this setter
-    public void setRequiredLevel(int requiredLevel) {
+    /*public void setRequiredLevel(int requiredLevel) {
         this.requiredLevel = requiredLevel;
-    }
+    }*/
+
+    /*public abstract Armor.ArmorType getArmorType();
+
+    public abstract HeroAttribute getArmorAttribute();
+
+    public abstract int getWeaponDamage();
+    public abstract Weapon.WeaponType getWeaponType();*/
 }
