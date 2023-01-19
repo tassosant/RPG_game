@@ -11,11 +11,12 @@ public class Warrior extends Hero{
         addWeaponTypes(Weapon.WeaponType.Axe, Weapon.WeaponType.Hammer, Weapon.WeaponType.Sword);
         addArmorTypes(Armor.ArmorType.Mail, Armor.ArmorType.Plate);
     }
+    @Override
     public void levelUp() {
         super.levelUp(3, 2, 1);
     }
 
-
+    @Override
     public double damage() {
         return super.damage(totalAttributes().getStrength());
     }

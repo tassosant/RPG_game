@@ -1,6 +1,25 @@
 package rpgGame.Items;
+
+import rpgGame.Heroes.HeroAttribute;
+
 //Item class
-public abstract class Item {
+interface armorAttributes{
+    public Armor.ArmorType getArmorType();
+    public HeroAttribute getArmorAttribute();
+}
+interface weaponAttributes {
+    public Weapon.WeaponType getWeaponType();
+    public int getWeaponDamage();
+}
+public abstract class Item implements armorAttributes, weaponAttributes {
+
+    public abstract Armor.ArmorType getArmorType();
+
+    public abstract HeroAttribute getArmorAttribute();
+
+    public abstract int getWeaponDamage();
+    public abstract Weapon.WeaponType getWeaponType();
+
     //fields
     private String name;
     private int requiredLevel;

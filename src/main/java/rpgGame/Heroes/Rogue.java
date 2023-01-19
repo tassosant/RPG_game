@@ -11,14 +11,13 @@ public class Rogue extends Hero{
         addWeaponTypes(Weapon.WeaponType.Dagger, Weapon.WeaponType.Sword);
         addArmorTypes(Armor.ArmorType.Leather, Armor.ArmorType.Mail);
     }
+    @Override
     public void levelUp() {
         super.levelUp(1, 4, 1);
     }
 
-    public void display(){
-        super.display();
-    }
 
+    @Override
     public double damage(){
         return super.damage(totalAttributes().getDexterity());
     }

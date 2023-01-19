@@ -1,5 +1,8 @@
 package rpgGame.Items;
 //subclass weapon
+
+import rpgGame.Heroes.HeroAttribute;
+
 public class Weapon extends Item{
     //fields
     public enum WeaponType {
@@ -24,10 +27,22 @@ public class Weapon extends Item{
 
     }
     //getters and setters
+    @Override
     public WeaponType getWeaponType() {
         return weaponType;
     }
 
+    @Override
+    public Armor.ArmorType getArmorType() {
+        return null;
+    }
+
+    @Override
+    public HeroAttribute getArmorAttribute() {
+        return null;
+    }
+
+    @Override
     public int getWeaponDamage() {
         return weaponDamage;
     }

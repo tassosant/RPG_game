@@ -4,8 +4,11 @@ import rpgGame.Items.*;
 
 import javax.management.ObjectInstance;
 import java.util.*;
-
-public abstract class Hero {
+interface heroActions{
+    public void levelUp();
+    public double damage();
+}
+public abstract class Hero implements heroActions{
     //fields
     private String name;
     private int level;
@@ -53,12 +56,18 @@ public abstract class Hero {
     }
 
     //One level up
-    public void levelUp(int strength, int dexterity, int intelligence){
-        this.levelAttributes.increaseStrength(strength);
-        this.levelAttributes.increaseDexterity(dexterity);
-        this.levelAttributes.increaseIntelligence(intelligence);
+    public void levelUp(int str, int dex, int intel){
+        //
+        this.levelAttributes.increaseStrength(str);
+        this.levelAttributes.increaseDexterity(dex);
+        this.levelAttributes.increaseIntelligence(intel);
         setLevel(getLevel()+1);
     }
+
+    /*public void levelUp() {
+
+    }*/
+
     //Display info
     public void display(){
         StringBuilder name = new StringBuilder(getName());
@@ -103,7 +112,7 @@ public abstract class Hero {
 
 
     //Method for equipping the armor
-    public void equipArmor(Armor armor) throws InvalidArmorException{
+    public void equipArmor(Item armor) throws InvalidArmorException{
         //if null value assigned as an argument then do nothing
         if(armor==null){
             return;
@@ -123,7 +132,7 @@ public abstract class Hero {
     }
 
     // Equip the weapon
-    public void equipWeapon(Weapon weapon) throws InvalidWeaponException{
+    public void equipWeapon(Item weapon) throws InvalidWeaponException{
         //Same logic as equipArmor
         if(weapon==null){
             return;

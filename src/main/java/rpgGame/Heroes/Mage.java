@@ -19,17 +19,16 @@ public class Mage extends Hero{
         addArmorTypes(Armor.ArmorType.Mail, Armor.ArmorType.Plate);
     }
     //call the super function levelUp and pass the Mage attributes
+    @Override
     public void levelUp() {
         super.levelUp(1, 1, 5);
     }
     //call the super class's function and pass the Hero's special attribute
+    @Override
     public double damage(){
         return super.damage(totalAttributes().getIntelligence());
     }
-    public void display(){
-        super.display();
 
-    }
 //    List<Weapon.WeaponType> MageWeaponTypes = List.of(Weapon.WeaponType.Staffs, Weapon.WeaponType.Wands);
     /*@Override
     public void setValidWeaponTypes(List<Weapon.WeaponType> MageWeaponTypes) {

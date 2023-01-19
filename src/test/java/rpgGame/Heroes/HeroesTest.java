@@ -28,9 +28,9 @@ class HeroesTest{
    /* @BeforeEach
     void setUp() {*/
         //bows
-        Weapon commonBow = new Weapon("Common Bow", 1,2, Weapon.WeaponType.Bow);
-        Weapon legendaryBow2 = new Weapon("Legendary Bow", 10,10, Weapon.WeaponType.Bow);
-        Weapon legendaryBow = new Weapon("Legendary Bow", 1,10, Weapon.WeaponType.Bow);
+        Item commonBow = new Weapon("Common Bow", 1,2, Weapon.WeaponType.Bow);
+        Item legendaryBow2 = new Weapon("Legendary Bow", 10,10, Weapon.WeaponType.Bow);
+        Item legendaryBow = new Weapon("Legendary Bow", 1,10, Weapon.WeaponType.Bow);
         //swords
        /* Weapon sword = new Weapon("Common sword", 1, 2, Weapon.WeaponType.Sword);*/
 
@@ -39,10 +39,10 @@ class HeroesTest{
         Weapon legendaryStaff = new Weapon("Legendary staff", 10,10, Weapon.WeaponType.Staff);*/
 
         //armor to be equipped for Ranger
-        Armor leatherBody = new Armor("Common leather Body", 1, Armor.ArmorType.Leather,1,2,1, Item.Slot.Body);
-        Armor leatherLegs = new Armor("Common leather Boots", 1, Armor.ArmorType.Leather,1,2,1, Item.Slot.Legs);
-        Armor leatherHead = new Armor("Common leather Helmet", 1, Armor.ArmorType.Leather,1,2,1, Item.Slot.Head);
-        Armor clothBody = new Armor("Rare cloth Body", 1, Armor.ArmorType.Leather,1,5,1, Item.Slot.Body);
+        Item leatherBody = new Armor("Common leather Body", 1, Armor.ArmorType.Leather,1,2,1, Item.Slot.Body);
+        Item leatherLegs = new Armor("Common leather Boots", 1, Armor.ArmorType.Leather,1,2,1, Item.Slot.Legs);
+        Item leatherHead = new Armor("Common leather Helmet", 1, Armor.ArmorType.Leather,1,2,1, Item.Slot.Head);
+        Item clothBody = new Armor("Rare cloth Body", 1, Armor.ArmorType.Leather,1,5,1, Item.Slot.Body);
 
         //Armor to be equipped for Mage
         /*Armor mailBody = new Armor("Common mail Body", 1, Armor.ArmorType.Leather,1,1,2, Item.Slot.Body);
@@ -50,9 +50,9 @@ class HeroesTest{
         Armor mailHead = new Armor("Common mail Helmet", 1, Armor.ArmorType.Leather,1,1,2, Item.Slot.Head);
         Armor plateBody = new Armor("Rare plate Body", 5, Armor.ArmorType.Leather,1,1,5, Item.Slot.Body);*/
 
-        Ranger tasosRanger = new Ranger("tasos");
-        Ranger tasosRanger2 = new Ranger("tasos2");
-        Mage tasosMage = new Mage("tasaras");
+        Hero tasosRanger = new Ranger("tasos");
+        Hero tasosRanger2 = new Ranger("tasos2");
+        Hero tasosMage = new Mage("tasaras");
 
     //}
 
@@ -77,11 +77,12 @@ class HeroesTest{
 
     @Test
     void testLevelAndAttributesWithNoItems() {
-        int level = 3;
+        int level = 2;
         int initLevel = 1;
-        tasosRanger.levelUp();
+        /*tasosRanger.levelUp();*/
         tasosRanger.levelUp();
         assertEquals(level,tasosRanger.getLevel());
+        assertEquals(12,tasosRanger.getLevelAttributes().getDexterity());
         assertEquals(initLevel,tasosRanger2.getLevel());
 
         assertEquals(initLevel,tasosMage.getLevel());
