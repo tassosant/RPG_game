@@ -5,8 +5,8 @@ import rpgGame.Items.*;
 import javax.management.ObjectInstance;
 import java.util.*;
 interface heroActions{
-    public void levelUp();
-    public double damage();
+    void levelUp();
+    double damage();
 }
 public abstract class Hero implements heroActions{
     //fields
@@ -29,11 +29,7 @@ public abstract class Hero implements heroActions{
 
     }
 
-    /*public Hero(String name,int level, HeroAttribute levelAttributes) {
-        this.name = name;
-        this.level = level;
-        this.levelAttributes = levelAttributes;
-    }*/
+
     //Getters and setters
     public String getName() {
         return name;
@@ -54,9 +50,9 @@ public abstract class Hero implements heroActions{
     public HeroAttribute getLevelAttributes() {
         return levelAttributes;
     }
-
     //One level up
-    public void levelUp(int str, int dex, int intel){
+
+    protected void levelUp(int str, int dex, int intel){
         //
         this.levelAttributes.increaseStrength(str);
         this.levelAttributes.increaseDexterity(dex);
@@ -72,16 +68,16 @@ public abstract class Hero implements heroActions{
     public void display(){
         StringBuilder name = new StringBuilder(getName());
         StringBuilder Class = new StringBuilder();
-        StringBuilder totalStrength = new StringBuilder(totalAttributes().getStrength());
-        StringBuilder totalDexterity = new StringBuilder(totalAttributes().getDexterity());
-        StringBuilder totalIntelligence = new StringBuilder(totalAttributes().getIntelligence());
-
+        StringBuilder totalStrength = new StringBuilder(String.valueOf(totalAttributes().getStrength()));
+        StringBuilder totalDexterity = new StringBuilder(String.valueOf(totalAttributes().getDexterity()));
+        StringBuilder totalIntelligence = new StringBuilder(String.valueOf(totalAttributes().getIntelligence()));
+        System.out.println("**************************************");
         System.out.println("Name="+name);
-        System.out.println("Class="+name);
-        System.out.println("Total strength="+totalAttributes().getStrength());
-        System.out.println("Total Dexterity="+totalAttributes().getDexterity());
-        System.out.println("Total intelligence="+totalAttributes().getIntelligence());
-
+        System.out.println("Class="+this.getClass().getSimpleName());
+        System.out.println("Total strength="+totalStrength);//totalAttributes().getStrength());
+        System.out.println("Total Dexterity="+totalDexterity);//totalAttributes().getDexterity());
+        System.out.println("Total intelligence="+totalIntelligence);//totalAttributes().getIntelligence());
+        System.out.println("**************************************");
         /*System.out.printf("Name=%s\tStrength=%d\tDexterity=%d\tIntelligence=%d\n",getName(),this.levelAttributes.getStrength(), this.levelAttributes.getDexterity(), this.levelAttributes.getIntelligence());
         System.out.printf("Weapon holding=%s\n",equipment.get(Item.Slot.Weapon)==null ? "No weapon" : equipment.get(Item.Slot.Weapon).getName());
         System.out.printf("Armor holding=%s\n",equipment.get(Item.Slot.Head)==null ? "No head armor" : equipment.get(Item.Slot.Head).getName());
@@ -138,7 +134,7 @@ public abstract class Hero implements heroActions{
             return;
         }
         if (!validWeaponTypes.contains(weapon.getWeaponType())) {
-            throw new InvalidWeaponException("Invalid Armor type");
+            throw new InvalidWeaponException("Invalid Weapon type");
         }else if(weapon.getRequiredLevel()>getLevel()) {
             throw new InvalidWeaponException("Not yet at level:"+weapon.getRequiredLevel());
         }
@@ -150,14 +146,14 @@ public abstract class Hero implements heroActions{
 
     //Method which returns the damage that hero can make
     //Passing the special attribute of the hero subclass to this method
-    public double damage(int attribute){
+    protected double damage(int attribute){
         int dmg = 0 ;
         int weapondmg = 1;
         Weapon weapon = (Weapon) this.equipment.get(Item.Slot.Weapon);
         if(this.equipment.get(Item.Slot.Weapon)!=null){
             weapondmg = weapon.getWeaponDamage();
         }
-        System.out.println("Strong Attribute:"+attribute);
+
         return weapondmg * (1+ (double) attribute/100);
     }
     // Add the valid weapon types
