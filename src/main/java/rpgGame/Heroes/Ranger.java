@@ -17,7 +17,7 @@ public class Ranger extends Hero{
     }
 
     public double damage(){
-        return super.damage(totalAttributes().getDexterity());
+        return super.damage(this.totalAttributes().getDexterity());
     }
 
     public void display(){

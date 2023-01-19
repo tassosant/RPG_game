@@ -82,21 +82,22 @@ public abstract class Hero {
 
     public HeroAttribute totalAttributes(){
         HeroAttribute TotalHeroAttributes = new HeroAttribute();
-        boolean isEmpty = true;
+
+        TotalHeroAttributes.setStrength(getLevelAttributes().getStrength());
+        TotalHeroAttributes.setDexterity(getLevelAttributes().getDexterity());
+        TotalHeroAttributes.setIntelligence(getLevelAttributes().getIntelligence());
         //iterate through equipment ARMOR slots
         for(Map.Entry<Item.Slot, Item> set : this.equipment.entrySet()){
             if(set.getKey() != Item.Slot.Weapon && set.getValue()!=null) {
-                isEmpty = false;
-                TotalHeroAttributes.setStrength(getLevelAttributes().getStrength()+TotalHeroAttributes.getStrength() + ((Armor) set.getValue()).getArmorAttribute().getStrength());
-                TotalHeroAttributes.setDexterity(getLevelAttributes().getDexterity()+TotalHeroAttributes.getDexterity() + ((Armor) set.getValue()).getArmorAttribute().getDexterity());
-                TotalHeroAttributes.setIntelligence(getLevelAttributes().getIntelligence()+TotalHeroAttributes.getIntelligence() + ((Armor) set.getValue()).getArmorAttribute().getIntelligence());
+
+                TotalHeroAttributes.setStrength(TotalHeroAttributes.getStrength() + ((Armor) set.getValue()).getArmorAttribute().getStrength());
+                TotalHeroAttributes.setDexterity(TotalHeroAttributes.getDexterity() + ((Armor) set.getValue()).getArmorAttribute().getDexterity());
+                TotalHeroAttributes.setIntelligence(TotalHeroAttributes.getIntelligence() + ((Armor) set.getValue()).getArmorAttribute().getIntelligence());
             }
 
         }
         //if it is empty we must return the levelattributes
-        if(isEmpty){
-            TotalHeroAttributes = getLevelAttributes();
-        }
+
         return TotalHeroAttributes;
     }
 
