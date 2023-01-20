@@ -99,7 +99,7 @@ RPG game characters and items.
 On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
 
 ## Visuals
-![Image with one armor equipped and weapon equipped](https://gitlab.com/tasos.an.antoniou/gradle_rpg/-/tree/HeroCreationWithEquippingArmorPIeceAndWeapon.png)
+![Image with one armor equipped and weapon equipped](https://gitlab.com/tasos.an.antoniou/gradle_rpg/-/tree/main/HeroCreationWithEquippingArmorPIeceAndWeapon.png)
 
 ## Installation
 This app was created and tested in intellij using the gradle tool.
@@ -150,6 +150,13 @@ heroName.equipArmor(leatherBody);
 ```
 heroName.equipWeapon(commonBow);
 ```
+
+##Devs
+
+1.	There are comments in code. The comments for all subclasses of hero are in Mage subclass.
+2.	The code is designed to satisfy the Liscov Substitution Principle.
+3.	Documentation generated in (https://gitlab.com/tasos.an.antoniou/gradle_rpg/-/tree/main/gradle_rpg_doc/index.html)
+4.	Test reports generated in (https://gitlab.com/tasos.an.antoniou/gradle_rpg/-/tree/main/build/reports/tests/test/index.html)
 
 ## Roadmap
 1. Autogenerate items in a chest class

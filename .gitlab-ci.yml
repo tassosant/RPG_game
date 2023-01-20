@@ -1,0 +1,9 @@
+stages:
+  - test
+
+junit:
+  stage: test
+  image: gradle:jdk17-alpine
+  script:
+    - gradle clean test --info
+
