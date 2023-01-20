@@ -31,53 +31,10 @@ public class Main {
         tasosRanger.equipArmor(leatherBody);
         tasosRanger.levelUp();
         tasosRanger.display();*/
-        ArrayList<Armor> armorItems = new ArrayList<Armor>();
-        ArrayList<Weapon> weaponItems = new ArrayList<Weapon>();
-    }
-
-    public static ArrayList<Armor> createArmorItems(ArrayList<Armor> armorItem){
-
-        return armorItem;
-    }
-
-    public static void addRandomItem(ArrayList<Item> armorItem){
-        Random random = new Random();
-        int upperLegendaryLimit = 10;
-        int upperCommonLimit = 2;
-        int upperUncommonLimit = 6;
-        int upperRareLimit = 8;
-//        int lowerLimit = random.nextInt(1);
-        int strength = random.nextInt();
-        int dexterity = 0;
-        int intelligence = 0;
-        HeroAttribute randomAttributes = new HeroAttribute(strength,dexterity,intelligence);
-        String name = nameGenerator(randomAttributes);
 
     }
 
-    public static int validateAttribute(int attribute, int lowerLimit){
-        if(attribute==lowerLimit){
-            return attribute+1;
-        }
-        return attribute;
-    }
-
-    public static String nameGenerator(HeroAttribute attributes){
-        String name = "";
-        if(attributes.getStrength()>8||attributes.getDexterity()>8||attributes.getIntelligence()>8){
-            name = "legendary";
-        }
-        else if (attributes.getStrength()>6||attributes.getDexterity()>6||attributes.getIntelligence()>6){
-            name = "rare";
-        }
-        else if(attributes.getStrength()>2||attributes.getDexterity()>2||attributes.getIntelligence()>2){
-            name = "uncommon";
-        }
-        else{
-            name = "common";
-        }
-        return name;
-    }
+    
 
 
 }
