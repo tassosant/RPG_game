@@ -71,9 +71,19 @@ public abstract class Hero implements heroActions{
         StringBuilder totalStrength = new StringBuilder(String.valueOf(totalAttributes().getStrength()));
         StringBuilder totalDexterity = new StringBuilder(String.valueOf(totalAttributes().getDexterity()));
         StringBuilder totalIntelligence = new StringBuilder(String.valueOf(totalAttributes().getIntelligence()));
+        StringBuilder weapon = new StringBuilder(String.valueOf(this.equipment.get(Item.Slot.Weapon)==null?"Empty":this.equipment.get(Item.Slot.Weapon).getName()));
+        StringBuilder head = new StringBuilder(String.valueOf(this.equipment.get(Item.Slot.Head)==null?"Empty":this.equipment.get(Item.Slot.Head).getName()));
+        StringBuilder body = new StringBuilder(String.valueOf(this.equipment.get(Item.Slot.Body)==null?"Empty":this.equipment.get(Item.Slot.Body).getName()));
+        StringBuilder legs = new StringBuilder(String.valueOf(this.equipment.get(Item.Slot.Legs)==null?"Empty":this.equipment.get(Item.Slot.Legs).getName()));
+
         System.out.println("**************************************");
         System.out.println("Name="+name);
         System.out.println("Class="+this.getClass().getSimpleName());
+        System.out.println("Equipment************");
+        System.out.println("Weapon=" + weapon);
+        System.out.println("Head=" + head);
+        System.out.println("Body=" + body);
+        System.out.println("Legs=" + legs);
         System.out.println("Total strength="+totalStrength);//totalAttributes().getStrength());
         System.out.println("Total Dexterity="+totalDexterity);//totalAttributes().getDexterity());
         System.out.println("Total intelligence="+totalIntelligence);//totalAttributes().getIntelligence());
