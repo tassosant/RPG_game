@@ -99,7 +99,7 @@ RPG game characters and items.
 On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
 
 ## Visuals
-![Image with one armor equipped and weapon equipped](https://gitlab.com/tasos.an.antoniou/gradle_rpg/-/tree/main/img/Image_with_one_armor_piece_equipped_and_weapon_equipped.png)
+![Image with one armor equipped and weapon equipped](https://gitlab.com/tasos.an.antoniou/gradle_rpg/-/tree/HeroCreationWithEquippingArmorPIeceAndWeapon.png)
 
 ## Installation
 This app was created and tested in intellij using the gradle tool.
@@ -157,8 +157,6 @@ heroName.equipWeapon(commonBow);
 3. Heroes can fight
 4. Heroes can move
 
-## License
-For open source projects, say how it is licensed.
 
 ## Project status
 This project is only for educational purposes
