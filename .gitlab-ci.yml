@@ -3,7 +3,7 @@ stages:
 
 junit:
   stage: test
-  image: gradle:sdk18-corretto jdk17-alpine
+  image: gradle:jdk17-alpine
   script:
     - gradle clean test --info
 
