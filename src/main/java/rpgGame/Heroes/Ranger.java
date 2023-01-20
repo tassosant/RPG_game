@@ -21,8 +21,8 @@ public class Ranger extends Hero{
     }
 
     public void display(){
+        //System.out.println("Damage:"+damage());
         super.display();
-        System.out.println("Damage:"+damage());
     }
 
 

@@ -21,7 +21,8 @@ public class Main {
         Ranger tasosRanger = new Ranger("tasoss");
         Ranger tasosRanger2 = new Ranger("tasos2");
 */
-        //tasos.display();
+        Ranger tasos = new Ranger("tasos");
+        tasos.display();
 
         /*Weapon bow2 = new Weapon("Legendary Bow2", 1,10, Weapon.WeaponType.Bow);
         tasosRanger.equipWeapon(bow2);

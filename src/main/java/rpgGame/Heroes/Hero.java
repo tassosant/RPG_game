@@ -75,6 +75,7 @@ public abstract class Hero implements heroActions{
         StringBuilder head = new StringBuilder(String.valueOf(this.equipment.get(Item.Slot.Head)==null?"Empty":this.equipment.get(Item.Slot.Head).getName()));
         StringBuilder body = new StringBuilder(String.valueOf(this.equipment.get(Item.Slot.Body)==null?"Empty":this.equipment.get(Item.Slot.Body).getName()));
         StringBuilder legs = new StringBuilder(String.valueOf(this.equipment.get(Item.Slot.Legs)==null?"Empty":this.equipment.get(Item.Slot.Legs).getName()));
+        StringBuilder dmg= new StringBuilder(String.valueOf(this.damage()));
 
         System.out.println("**************************************");
         System.out.println("Name="+name);
@@ -87,6 +88,7 @@ public abstract class Hero implements heroActions{
         System.out.println("Total strength="+totalStrength);//totalAttributes().getStrength());
         System.out.println("Total Dexterity="+totalDexterity);//totalAttributes().getDexterity());
         System.out.println("Total intelligence="+totalIntelligence);//totalAttributes().getIntelligence());
+        System.out.println("Total damage:"+dmg);
         System.out.println("**************************************");
         /*System.out.printf("Name=%s\tStrength=%d\tDexterity=%d\tIntelligence=%d\n",getName(),this.levelAttributes.getStrength(), this.levelAttributes.getDexterity(), this.levelAttributes.getIntelligence());
         System.out.printf("Weapon holding=%s\n",equipment.get(Item.Slot.Weapon)==null ? "No weapon" : equipment.get(Item.Slot.Weapon).getName());

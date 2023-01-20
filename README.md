@@ -53,38 +53,100 @@ Every project is different, so consider which of these sections apply to yours. 
 RPG game characters and items.
 
 ## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+1.	This project is a small rpg game with no graphics.
+
+2.	It is able to create some items(weapons and armor) and some heroes **(Mage, Ranger, Warrior, Rogue)**.
+
+3.	The heroes can equip armor or weapon and they can damage an opponent. Unfortunately, there is no HP attribute yet.
+
+4.	The heroes have three attributes(strength, dexterity and intelligence).
+
+5.	The weapon types are **Staff,Wand,Dagger,Sword**
+
+6.	The armor's materials are **Leather,Plate,Mail,Cloth**.
+
+7.	All heroes can equip only on weapon(Slot weapon) and three armor pieces(The available slots are **Head,Body and Legs**) one armor piece per slot.
+
+8.	The weapon types of **Staff and Wand** are available to **Mages**. These Heroes can only be outfitted with **Cloth** armor.
+
+9.	The **Bow** weapon types are available for **Rangers** to use. These Heroes can only wear armor made of **Leather** and **Mail**.
+
+10.	The **Dagger and Sword** weapon types are available to **Rogues**. These Heroes can only wear armor made of **Leather or Mail**.
+
+11.	The **Axe,Hammer,Sword** weapon types are available to **Warriors**. Only **Mail and Plate** armor type can be equipped to these Heroes.
+
+12.	Mage's stats at level 1(str:1,dex:1,intel:8). Mage at level 2(str:2,dex:2,intel:13). The strong attribute of Mage is intelligence.
+
+13.	Ranger's stats at level 1(str:1,dex:7,intel:1). Ranger at level 2(str:2,dex:12,intel:2). The strong attribute of Ranger is dexterity.
+
+14.	Rogue's stats at level 1(str:2,dex:6,intel:1). Rogue at level 2(str:3,dex:10,intel:2). The strong attribute of Rogue is dexterity.
+
+15.	Warrior's stats at level 1(str:5,dex:2,intel:1). Warrior at level 2(str:8,dex:4,intel:2). The strong attribute of Warrior is strength.
+
+16.	Caclulate damage at hero's lvl 1:
+	
+	a.	The dmg of warrior's at level 1 with no equipment must be 1*(1+(5/100)).(5 is the strong attribute of hero's, in this case it is strength).
+	b.	The dmg of warrior's at level 1 with weapon equipped must be 2*(1+(5/100)).(2 is the weapon's damage).
+	c.	The dmg of warrior's at level 1 with one armor piece equipped(e.g. plate body with strength 2) must be 1*(1+(5+2)/100).(5+2 is hero's strong attribute plus the armor's attribute which must be the same type of hero's strong attribute)
+	d.	The dmg of warrior's at level 1 with one armor piece equipped and weapon equipped(example d and c together) must be 2*(1+(5+2)/100)
+	
+17.	As it is obvious from above, the hero's three attributes and damage changes depending on the equipped items and hero's levels.
+
+18.	Furthermore the app can display the character status or item status.Also, it displays the equipment items which are equipped by the hero.
+
 
 ## Badges
 On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
 
 ## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+
 
 ## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+This app was created and tested in intellij using the gradle tool.
 
 ## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+In main method which is in and main class:
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+1. A hero(e.g. Mage) is created like this example below:
+```
+Hero heroName = new Ranger("myName");
+```
+
+You can display the status with this line:
+```
+heroName.display();
+```
+
+2. An armor item can be created like this:
+```
+Item leatherBody = new Armor("Common leather Body", 5, Armor.ArmorType.Leather, 1, 2, 4, Item.Slot.Body);
+```
+The arguments are 7: (itemName, requiredLevel,**armorType**,strength,dexterity,intelligence,**slot**);
+The requiredLevel is the level of the Hero who can equip this particular item. (e.g. the item has requierdLevel=11, the hero must be at least of level 11 to be able to equip it).
+
+3. A weapon can be created like this:
+```
+Item commonBow = new Weapon("Common Bow", 1,2, Weapon.WeaponType.Bow);
+```
+The arguments are 4:(itemName, requiredLevel, weaponDamage, **weaponType**)
+The requiredLevel is explained above(check part 3 of this section).
+
+4. Display Hero's stats:
+```
+heroName.display();
+```
+
+5.Increase hero's level:
+```
+heroName.levelUp();
+```
 
 ## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+1. Autogenerate items in a chest class
+2. Console game user interface(terminal ui)
 
 ## License
 For open source projects, say how it is licensed.
 
 ## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+This project is only for educational purposes
