@@ -85,10 +85,10 @@ RPG game characters and items.
 
 16.	Caclulate damage at hero's lvl 1:
 	
-	a.	The dmg of warrior's at level 1 with no equipment must be 1*(1+(5/100)).(5 is the strong attribute of hero's, in this case it is strength).
-	b.	The dmg of warrior's at level 1 with weapon equipped must be 2*(1+(5/100)).(2 is the weapon's damage).
-	c.	The dmg of warrior's at level 1 with one armor piece equipped(e.g. plate body with strength 2) must be 1*(1+(5+2)/100).(5+2 is hero's strong attribute plus the armor's attribute which must be the same type of hero's strong attribute)
-	d.	The dmg of warrior's at level 1 with one armor piece equipped and weapon equipped(example d and c together) must be 2*(1+(5+2)/100)
+	-	The dmg of warrior's at level 1 with no equipment must be 1*(1+(5/100)).(5 is the strong attribute of hero's, in this case it is strength).
+	-	The dmg of warrior's at level 1 with weapon equipped must be 2*(1+(5/100)).(2 is the weapon's damage).
+	-	The dmg of warrior's at level 1 with one armor piece equipped(e.g. plate body with strength 2) must be 1*(1+(5+2)/100).(5+2 is hero's strong attribute plus the armor's attribute which must be the same type of hero's strong attribute)
+	-	The dmg of warrior's at level 1 with one armor piece equipped and weapon equipped(example d and c together) must be 2*(1+(5+2)/100)
 	
 17.	As it is obvious from above, the hero's three attributes and damage changes depending on the equipped items and hero's levels.
 
@@ -105,7 +105,7 @@ On some READMEs, you may see small images that convey metadata, such as whether 
 This app was created and tested in intellij using the gradle tool.
 
 ## Usage
-In main method which is in and main class:
+In main method which is in the main class:
 
 1. A hero(e.g. Mage) is created like this example below:
 ```
