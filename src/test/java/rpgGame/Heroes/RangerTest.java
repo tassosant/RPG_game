@@ -241,5 +241,50 @@ class RangerTest {
         assertEquals(expectedInt, intel);
         assertEquals(dmg, tasosRanger.damage());
     }
+    @Test
+    void dropWeapon() throws InvalidWeaponException {
+        //I check if it throws excetpions, also I check if the attributes have changed
+        Hero tasosRanger = new Ranger("tasos");
 
+        Item leatherBody = new Armor("Common leather Body", 8, Armor.ArmorType.Leather, 1, 2, 1, Item.Slot.Body);
+        Item commonSword = new Weapon("Common Bow", 1, 2, Weapon.WeaponType.Sword);
+        Item legendaryBow = new Weapon("Legendary Bow", 1, 10, Weapon.WeaponType.Bow);
+        int expectedStr = 1;
+        int expectedDex = 7;
+        int expectedInt = 1;
+        double dmg = 1 * (1 + (double) 7 / 100);
+        tasosRanger.equipWeapon(legendaryBow);
+        tasosRanger.dropWeapon();
+        int str = tasosRanger.totalAttributes().getStrength();
+        int dex = tasosRanger.totalAttributes().getDexterity();
+        int intel = tasosRanger.totalAttributes().getIntelligence();
+        assertEquals(expectedStr, str);
+        assertEquals(expectedDex, dex);
+        assertEquals(expectedInt, intel);
+        assertEquals(dmg, tasosRanger.damage());
+
+    }
+    @Test
+    void dropArmor() throws InvalidArmorException {
+        //I check if it throws excetpions, also I check if the attributes have changed
+        Hero tasosRanger = new Ranger("tasos");
+
+        Item leatherBody = new Armor("Common leather Body", 1, Armor.ArmorType.Leather, 1, 2, 1, Item.Slot.Body);
+        Item commonSword = new Weapon("Common Bow", 1, 2, Weapon.WeaponType.Sword);
+        Item legendaryBow = new Weapon("Legendary Bow", 1, 10, Weapon.WeaponType.Bow);
+        int expectedStr = 1;
+        int expectedDex = 7;
+        int expectedInt = 1;
+        double dmg = 1 * (1 + (double) 7 / 100);
+        tasosRanger.equipArmor(leatherBody);
+        tasosRanger.dropArmor(leatherBody);
+        int str = tasosRanger.totalAttributes().getStrength();
+        int dex = tasosRanger.totalAttributes().getDexterity();
+        int intel = tasosRanger.totalAttributes().getIntelligence();
+        assertEquals(expectedStr, str);
+        assertEquals(expectedDex, dex);
+        assertEquals(expectedInt, intel);
+        assertEquals(dmg, tasosRanger.damage());
+
+    }
 }
