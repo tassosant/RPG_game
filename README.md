@@ -53,7 +53,7 @@ Every project is different, so consider which of these sections apply to yours. 
 RPG game characters and items.
 
 ## Description
-1.	This project is a small rpg game with no graphics.
+1.	This project is a small RPG game with no graphics.
 
 2.	It is able to create some items(weapons and armor) and some heroes **(Mage, Ranger, Warrior, Rogue)**.
 
@@ -65,15 +65,15 @@ RPG game characters and items.
 
 6.	The armor's materials are **Leather,Plate,Mail,Cloth**.
 
-7.	All heroes can equip only on weapon(Slot weapon) and three armor pieces(The available slots are **Head,Body and Legs**) one armor piece per slot.
+7.	All heroes can equip only on weapon(Slot weapon) and three armor pieces.<br/>The available armor slots are **Head,Body and Legs**, one armor piece per slot.
 
-8.	The weapon types of **Staff and Wand** are available to **Mages**. These Heroes can only be outfitted with **Cloth** armor.
+8.	The weapon types of **Staff and Wand** are available to **Mages**. <br/>These Heroes can only be outfitted with **Cloth** armor.
 
-9.	The **Bow** weapon types are available for **Rangers** to use. These Heroes can only wear armor made of **Leather** and **Mail**.
+9.	The **Bow** weapon types are available for **Rangers** to use. <br/>These Heroes can only wear armor made of **Leather** and **Mail**.
 
-10.	The **Dagger and Sword** weapon types are available to **Rogues**. These Heroes can only wear armor made of **Leather or Mail**.
+10.	The **Dagger and Sword** weapon types are available to **Rogues**.<br/> These Heroes can only wear armor made of **Leather or Mail**.
 
-11.	The **Axe,Hammer,Sword** weapon types are available to **Warriors**. Only **Mail and Plate** armor type can be equipped to these Heroes.
+11.	The **Axe,Hammer,Sword** weapon types are available to **Warriors**.<br/> Only **Mail and Plate** armor type can be equipped to these Heroes.
 
 12.	Mage's stats at level 1(str:1,dex:1,intel:8). Mage at level 2(str:2,dex:2,intel:13). The strong attribute of Mage is intelligence.
 
@@ -87,8 +87,8 @@ RPG game characters and items.
 	
 	-	The dmg of warrior's at level 1 with no equipment must be 1*(1+(5/100)).(5 is the strong attribute of hero's, in this case it is strength).
 	-	The dmg of warrior's at level 1 with weapon equipped must be 2*(1+(5/100)).(2 is the weapon's damage).
-	-	The dmg of warrior's at level 1 with one armor piece equipped(e.g. plate body with strength 2) must be 1*(1+(5+2)/100).(5+2 is hero's strong attribute plus the armor's attribute which must be the same type of hero's strong attribute)
-	-	The dmg of warrior's at level 1 with one armor piece equipped and weapon equipped(example d and c together) must be 2*(1+(5+2)/100)
+	-	The dmg of warrior's at level 1 with one armor piece equipped(e.g. plate body with strength 2) <br /> must be 1*(1+(5+2)/100). <br />"5+2" is hero's strong attribute plus the armor's attribute which must be the same type of hero's strong attribute
+	-	The dmg of warrior's at level 1 with one armor piece equipped and weapon equipped<br/>(example d and c together) must be 2*(1+(5+2)/100)
 	
 17.	As it is obvious from above, the hero's three attributes and damage changes depending on the equipped items and hero's levels.
 
@@ -99,7 +99,7 @@ RPG game characters and items.
 On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
 
 ## Visuals
-
+![Image with one armor equipped and weapon equipped]("https://gitlab.com/tasos.an.antoniou/gradle_rpg/-/tree/main/img/Image with one armor equipped and weapon equipped.svg")
 
 ## Installation
 This app was created and tested in intellij using the gradle tool.
@@ -107,7 +107,7 @@ This app was created and tested in intellij using the gradle tool.
 ## Usage
 In main method which is in the main class:
 
-###1. A hero(e.g. Mage) is created like this example below:
+1.	A hero(e.g. Mage) is created like this example below:
 ```
 Hero heroName = new Ranger("myName");
 ```
@@ -117,33 +117,45 @@ You can display the status with this line:
 heroName.display();
 ```
 
-2. An armor item can be created like this:
+2.	An armor item can be created like this:
 ```
 Item leatherBody = new Armor("Common leather Body", 5, Armor.ArmorType.Leather, 1, 2, 4, Item.Slot.Body);
 ```
 The arguments are 7: (itemName, requiredLevel,**armorType**,strength,dexterity,intelligence,**slot**);
 The requiredLevel is the level of the Hero who can equip this particular item. (e.g. the item has requierdLevel=11, the hero must be at least of level 11 to be able to equip it).
 
-3. A weapon can be created like this:
+3.	A weapon can be created like this:
 ```
 Item commonBow = new Weapon("Common Bow", 1,2, Weapon.WeaponType.Bow);
 ```
 The arguments are 4:(itemName, requiredLevel, weaponDamage, **weaponType**)
 The requiredLevel is explained above(check part 3 of this section).
 
-4. Display Hero's stats:
+4.	Display Hero's stats:
 ```
 heroName.display();
 ```
 
-5.Increase hero's level:
+5.	Increase hero's level:
 ```
 heroName.levelUp();
+```
+
+6.	Equip an armor piece:
+```
+heroName.equipArmor(leatherBody);
+```
+
+7.	Equip a weapon:
+```
+heroName.equipWeapon(commonBow);
 ```
 
 ## Roadmap
 1. Autogenerate items in a chest class
 2. Console game user interface(terminal ui)
+3. Heroes can fight
+4. Heroes can move
 
 ## License
 For open source projects, say how it is licensed.
