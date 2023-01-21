@@ -9,7 +9,7 @@ RPG game characters and items.
 
 2.	It is able to create some items(weapons and armor) and some heroes **(Mage, Ranger, Warrior, Rogue)**.
 
-3.	The heroes can equip armor or weapon and they can damage an opponent. Unfortunately, there is no HP attribute yet.
+3.	The heroes can equip armor or weapon and can damage an opponent. Unfortunately, there is no HP attribute yet.
 
 4.	The heroes have three attributes(strength, dexterity and intelligence).
 
@@ -17,7 +17,7 @@ RPG game characters and items.
 
 6.	The armor's materials are **Leather,Plate,Mail,Cloth**.
 
-7.	All heroes can equip only on weapon(Slot weapon) and three armor pieces.<br/>The available armor slots are **Head,Body and Legs**, one armor piece per slot.
+7.	All heroes can equip only one weapon(Slot weapon) and three armor pieces.<br/>The available armor slots are **Head,Body and Legs**, one armor piece per slot.
 
 8.	The weapon types of **Staff and Wand** are available to **Mages**. <br/>These Heroes can only be outfitted with **Cloth** armor.
 
@@ -54,7 +54,7 @@ On some READMEs, you may see small images that convey metadata, such as whether 
 ![Image with one armor equipped and weapon equipped](https://github.com/tassosant/RPG_game/blob/main/HeroCreationWithEquippingArmorPIeceAndWeapon.png)
 
 ## Installation
-This app was created and tested in intellij using the gradle tool.
+This app was created and tested in **intellij** using the **gradle** tool.
 
 ## Usage
 In main method which is in the main class:
@@ -73,15 +73,15 @@ heroName.display();
 ```
 Item leatherBody = new Armor("Common leather Body", 5, Armor.ArmorType.Leather, 1, 2, 4, Item.Slot.Body);
 ```
-The arguments are 7: (itemName, requiredLevel,**armorType**,strength,dexterity,intelligence,**slot**);
-The requiredLevel is the level of the Hero who can equip this particular item. (e.g. the item has requierdLevel=11, the hero must be at least of level 11 to be able to equip it).
+There are 7 arguments: (itemName, requiredLevel,**armorType**,strength,dexterity,intelligence,**slot**);
+The requiredLevel is the lowest level at which the Hero can use this specific item. (e.g. the item has requierdLevel=11, the hero must be at least of level 11 to be able to equip it).
 
 3.	A weapon can be created like this:
 ```
 Item commonBow = new Weapon("Common Bow", 1,2, Weapon.WeaponType.Bow);
 ```
-The arguments are 4:(itemName, requiredLevel, weaponDamage, **weaponType**)
-The requiredLevel is explained above(check part 3 of this section).
+The arguments are 4: (itemName, requiredLevel, weaponDamage, **weaponType**)
+The requiredLevel is described previously(check part 3 of this section).
 
 4.	Display Hero's stats:
 ```
@@ -102,12 +102,20 @@ heroName.equipArmor(leatherBody);
 ```
 heroName.equipWeapon(commonBow);
 ```
+8.	Drop a weapon:
+```
+heroName.dropWeapon();
+```
+9.	Drop an item:
+```
+heroName.dropArmor(leatherBody);
+```
 
 ## Devs
 
-1.	There are comments in code. The comments for all subclasses of hero are in Mage subclass.
-2.	The code is designed to satisfy the Liscov Substitution Principle.
-3.	Documentation generated in (https://gitlab.com/tasos.an.antoniou/gradle_rpg/-/tree/main/gradle_rpg_doc/index.html)
+1.	There are comments in code. The comments for all hero's subclasses are in Mage subclass.
+2.	Some parts of code satisfy the Liscov Substitution Principle.
+3.	Documentation generated in (https://github.com/tassosant/RPG_game/tree/main/gradle_rpg_doc)
 
 
 ## Roadmap
