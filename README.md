@@ -59,7 +59,7 @@ This app was created and tested in intellij using the gradle tool.
 ## Usage
 In main method which is in the main class:
 
-1.	A hero(e.g. Mage) is created like this example below:
+1.	A hero(e.g. Ranger) is created like this example below:
 ```
 Hero heroName = new Ranger("myName");
 ```
