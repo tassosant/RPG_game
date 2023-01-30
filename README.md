@@ -72,11 +72,11 @@ Type whatever name you want and press **Enter**
 3. Then, you will have to choose a Hero's action:
 ```  
 Please select from 1 to 5:  
-4. Level up  
-5. Equip weapon  
-6. Equip armor  
-7. Display status  
-8. Exit  
+1. Level up  
+2. Equip weapon  
+3. Equip armor  
+4. Display status  
+5. Exit  
 ```  
 Type the number and press **Enter**
 
