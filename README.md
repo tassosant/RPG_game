@@ -81,13 +81,13 @@ Please select from 1 to 5:
 Type the number and press **Enter**
 
 
-9. If you equip the weapon:
+4.  If you equip the weapon:
     - It will appear on the screen to type the weapon's name. Type it and press **Enter**.
     - Then type the required Hero's level to equip this weapon(greater than 0). Type it and press **Enter**.
     - Type the weapon's dmg (greater than 0) and press **Enter**..
     - Choose the type of weapon(1 to 7). Type the number and press **Enter**.  
-      -If it is the valid type for the hero's class it will appear on the screen(Equipped:Weapon's name).
-10. If you equip armor:
+    - If it is the valid type for the hero's class it will appear on the screen(Equipped:Weapon's name).
+5. If you equip armor:
     - It will appear on the screen to type the armor item's name. Type it and press **Enter**.
     - Then type the required Hero's level to equip this armor item(greater than 0). Type it and press **Enter**.
     - Write in a line the values of three attributes(strength, dexterity, intelligence) like this:
