@@ -33,7 +33,9 @@ public class Main {
         //menu for choosing a hero
         String[] menuHero = {"1. Mage","2. Ranger","3. Rogue","4. Warrior","5. Exit"};
 
-
+        //menuHero is an array, so indexes begin from zero.
+        // I make the user to choose always index+1 because in menus it is rare the zero option
+        //The last index is menuHero.length-1, so for the user the last option is menuHero.length
         while (HeroChoice!=menuHero.length) {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Please choose a Hero:");
@@ -65,7 +67,7 @@ public class Main {
 
 
     }
-
+    //method for choosing to level up, equip item,
     public static void heroActionsUI(Hero hero) throws InvalidWeaponException, InvalidArmorException {
         String[] heroActions = {"1. Level up", "2. Equip weapon", "3. Equip armor", "4. Display status", "5. Exit"};
         Scanner scanner = new Scanner(System.in);
@@ -76,7 +78,7 @@ public class Main {
         actionChoice = scanner.nextInt();
 
         while (actionChoice!=heroActions.length){
-
+            //if the option is in main menu except for the last option which is exit
             if(actionChoice>=1 && actionChoice<=heroActions.length-1){
                 if(heroActions[actionChoice-1].contains("Level")){
                     hero.levelUp();
@@ -84,6 +86,7 @@ public class Main {
                 }else if(heroActions[actionChoice-1].contains("Equip weapon")){
                     try {
                         weapon = createWeaponUI();
+
                         hero.equipWeapon(weapon);
                     }catch (InvalidWeaponException e){
                         System.out.println("Cannot equip this weapon");
@@ -93,17 +96,21 @@ public class Main {
                 }else if(heroActions[actionChoice-1].contains("Equip armor")){
                     try {
                         armor = createArmorUI();
+
                         hero.equipArmor(armor);
                     }catch (InvalidArmorException e){
                         System.out.println("Cannot equip this armor item");
                     }
 
                 }else {
+                    //display the stats
                     hero.display();
 
                 }
+            //if the option is exit
             }else if(actionChoice==heroActions.length){
                 break;
+            //not valid option(e.g. -1)
             }else {
                 System.out.println("Please choose a valid choice");
             }
@@ -146,8 +153,6 @@ public class Main {
             System.out.println(menuOptions[index]);
         }
     }
-
-
 
     public static Hero createSelectedHero(int choice, String name, String[] menu){
         Hero hero;
@@ -221,7 +226,7 @@ public class Main {
         String regex = "^[0-9]+$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher;
-        boolean matchFound = true;
+        boolean matchFound;
         for (String attribute: attributesInput){
             matcher = pattern.matcher(attribute);
             matchFound = matcher.find();
@@ -233,7 +238,7 @@ public class Main {
     }
 
     public static Item createWeaponUI(){
-        String type;
+
         Weapon.WeaponType[] weaponTypes = Weapon.WeaponType.values();
         int weaponTypeChoice = 0;
         Scanner scanner = new Scanner(System.in);
@@ -304,7 +309,7 @@ public class Main {
             armorTypeChoice = scanner.nextInt();
         }
         armorType = armorTypes[armorTypeChoice-1];
-
+        System.out.println("You chose the type:"+armorType);
         System.out.println("Which slot do you want to equip the armor?");
         menu(Item.Slot.values());
         slotTypeChoice = scanner.nextInt();
@@ -320,4 +325,7 @@ public class Main {
 
 
     }
+
+
+
 }

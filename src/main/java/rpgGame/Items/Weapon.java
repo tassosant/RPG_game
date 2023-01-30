@@ -47,4 +47,11 @@ public class Weapon extends Item{
         return weaponDamage;
     }
 
+    @Override
+    public void displayStats(){
+        System.out.println("Type:"+getWeaponType());
+        super.displayStats();
+        System.out.println("Weapon's dmg:"+getWeaponDamage());
+    }
+
 }

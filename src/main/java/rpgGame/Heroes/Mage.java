@@ -16,7 +16,7 @@ public class Mage extends Hero{
         //In order not writing lots of lines I've created methods in Hero's class to pass as arguments the valid Weapon.WeaponType and Armor.ArmorType
         //In this case Mage can carry Wands, staffs, mails and plates
         addWeaponTypes(Weapon.WeaponType.Staff, Weapon.WeaponType.Wand);
-        addArmorTypes(Armor.ArmorType.Mail, Armor.ArmorType.Plate);
+        addArmorTypes(Armor.ArmorType.Cloth);
     }
     //call the super function levelUp and pass the Mage attributes
     @Override

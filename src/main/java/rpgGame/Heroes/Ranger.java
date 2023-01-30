@@ -9,7 +9,7 @@ public class Ranger extends Hero{
         HeroAttribute RangerAttributes =  new HeroAttribute(1,7,1);
         setLevelAttributes(RangerAttributes);
         addWeaponTypes(Weapon.WeaponType.Bow);
-        addArmorTypes(Armor.ArmorType.Leather, Armor.ArmorType.Cloth);
+        addArmorTypes(Armor.ArmorType.Leather, Armor.ArmorType.Mail);
     }
     @Override
     public void levelUp() {

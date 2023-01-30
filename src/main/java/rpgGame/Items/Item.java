@@ -4,12 +4,17 @@ import rpgGame.Heroes.HeroAttribute;
 
 //Item class
 interface armorAttributes{
-    public Armor.ArmorType getArmorType();
-    public HeroAttribute getArmorAttribute();
+    Armor.ArmorType getArmorType();
+    HeroAttribute getArmorAttribute();
+
+    void displayStats();
+
 }
 interface weaponAttributes {
     public Weapon.WeaponType getWeaponType();
     public int getWeaponDamage();
+
+    void displayStats();
 }
 public abstract class Item implements armorAttributes, weaponAttributes {
 
@@ -55,7 +60,13 @@ public abstract class Item implements armorAttributes, weaponAttributes {
     /*public void setRequiredLevel(int requiredLevel) {
         this.requiredLevel = requiredLevel;
     }*/
+    public void displayStats(){
+        System.out.println("Name:"+getName());
+        System.out.println("RequiredLevel:"+getRequiredLevel());
+        System.out.println("Slot:"+getSlot());
 
+
+    }
     /*public abstract Armor.ArmorType getArmorType();
 
     public abstract HeroAttribute getArmorAttribute();

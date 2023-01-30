@@ -38,4 +38,11 @@ public class Armor extends Item{
     public Weapon.WeaponType getWeaponType() {
         return null;
     }
+
+    @Override
+    public void displayStats(){
+        System.out.println("Type:"+getArmorType());
+        super.displayStats();
+        System.out.printf("Str:%d\tDex:%d\tIntel:%d\n",getArmorAttribute().getStrength(), getArmorAttribute().getDexterity(), getArmorAttribute().getIntelligence());
+    }
 }
